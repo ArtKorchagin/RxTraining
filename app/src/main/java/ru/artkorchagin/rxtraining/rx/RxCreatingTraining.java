@@ -113,16 +113,31 @@ public class RxCreatingTraining {
 
     /* Internal Dummy Methods */
 
+    /**
+     * !Вспомогательный метод! !Не изменять!
+     *
+     * @return Результат вычислений
+     */
     int expensiveMethod() {
         // Some Expensive Calculations
-         return Integer.MAX_VALUE;
+        return Integer.MAX_VALUE;
     }
 
+    /**
+     * !Вспомогательный метод! !Не изменять!
+     *
+     * @return Результат вычислений
+     */
     int alternativeExpensiveMethod() {
         // Some Expensive Calculations
         return Integer.MAX_VALUE;
     }
 
+    /**
+     * !Вспомогательный метод! !Не изменять!
+     *
+     * @return Результат вычислений
+     */
     int unstableMethod(boolean unstableCondition) {
         if (unstableCondition) {
             throw new ExpectedException();
