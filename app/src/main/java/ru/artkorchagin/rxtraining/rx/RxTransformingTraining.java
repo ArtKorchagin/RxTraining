@@ -3,9 +3,6 @@ package ru.artkorchagin.rxtraining.rx;
 import java.util.List;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.functions.BiFunction;
-import io.reactivex.functions.Function;
 import io.reactivex.observables.GroupedObservable;
 import ru.artkorchagin.rxtraining.entity.Entity;
 import ru.artkorchagin.rxtraining.exceptions.NotImplementedException;
