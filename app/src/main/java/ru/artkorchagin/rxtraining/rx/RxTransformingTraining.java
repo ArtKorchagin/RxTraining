@@ -14,7 +14,7 @@ import ru.artkorchagin.rxtraining.exceptions.NotImplementedException;
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class RxTransformingTraining {
 
-    /* Training Methods */
+    /* Тренировочные методы */
 
     /**
      * Преобразование чисел в строки
@@ -29,7 +29,7 @@ public class RxTransformingTraining {
 
     /**
      * Преобразование {@link Observable<Integer>} эммитящих идентификаторы сущностей в сами
-     * сущности, которые должны быть получены с помощью метода {@code requestApiEntity}
+     * сущности, которые должны быть получены с помощью метода {@link #requestApiEntity(int)}
      *
      * @param idObservable - идентификаторы сущностей
      * @return {@link Observable<Entity>} эммитит сущности, соответствующие идентификаторам из
@@ -55,20 +55,19 @@ public class RxTransformingTraining {
      * Объединить элементы, полученные из {@code intObservable} в списки {@link List} с максимальным
      * размером {@code listsSize}
      *
-     * @param listsSize     - максимальный размер списка элементов
-     * @param intObservable - {@link Observable} с произвольным количеством рандомных чисел
+     * @param listsSize      максимальный размер списка элементов
+     * @param intObservable  {@link Observable} с произвольным количеством рандомных чисел
      * @return {@code Observable} который эммитит списки чисел из {@code intObservable}
      */
     public Observable<List<Integer>> collectsIntsToLists(int listsSize, Observable<Integer> intObservable) {
         throw new NotImplementedException();
     }
 
-    /* Internal Dummy Methods */
+    /* Вспомогательные методы */
 
     /**
-     * !Вспомогательный метод! !Не изменять!
-     * <p>
      * Выполнение HTTP запроса и эммит полученной сущности, соответствующей заданному идентификатору
+     * (Вспомогательный метод! Не изменять!)
      *
      * @param id - Идентификатор сущности {@link Entity}
      * @return {@link Observable<Entity>} который эммитит полученную сущность

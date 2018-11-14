@@ -11,10 +11,10 @@ import ru.artkorchagin.rxtraining.exceptions.NotImplementedException;
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class RxCreatingTraining {
 
-    /* Training Methods */
+    /* Тренировочные методы */
 
     /**
-     * Оборачивание значения в Observable
+     * Эммит одного элемента
      *
      * @param value - Произвольное число
      * @return {@link Observable}, который эммитит только значение {@code value}
@@ -24,7 +24,7 @@ public class RxCreatingTraining {
     }
 
     /**
-     * Оборачивание массива в Observable
+     * Эммит элементов массива в {@link Observable}
      *
      * @param array - Массив произвольных строк
      * @return {@link Observable}, который эммитит по порядку все строки из заданного массива
@@ -34,10 +34,11 @@ public class RxCreatingTraining {
     }
 
     /**
-     * Выполнение метода с длительными вычислениями: {@code expensiveMethod}. Необходимо, чтобы метод
+     * Выполнение метода с длительными вычислениями: {@link #expensiveMethod()}. Необходимо, чтобы метод
      * вызывался только при подписке на Observable
      *
-     * @return {@link Observable} - который эммитит результат выполнения метода {@code expensiveMethod}
+     * @return {@link Observable} - который эммитит результат выполнения метода
+     * {@link #expensiveMethod()}
      */
     public Observable<Integer> expensiveMethodResult() {
         throw new NotImplementedException();
@@ -74,9 +75,9 @@ public class RxCreatingTraining {
      * @param unstableCondition - условие, которое необходимо передавать в {@code unstableMethod}
      * @return {@link Observable} который последовательно эммитит результаты выполнения методов, в
      * следующем порядке:
-     * 1. {@code expensiveMethod}
-     * 2. {@code alternativeExpensiveMethod}
-     * 3. {@code unstableMethod}
+     * 1. {@link #expensiveMethod()}
+     * 2. {@link #alternativeExpensiveMethod()}
+     * 3. {@link #unstableMethod(boolean)}
      */
     public Observable<Integer> combinationExpensiveMethods(final boolean unstableCondition) {
         throw new NotImplementedException();
@@ -111,10 +112,10 @@ public class RxCreatingTraining {
         throw new NotImplementedException();
     }
 
-    /* Internal Dummy Methods */
+    /* Вспомогательные методы */
 
     /**
-     * !Вспомогательный метод! !Не изменять!
+     * Длительные вычисления. (Вспомогательный метод! Не изменять!)
      *
      * @return Результат вычислений
      */
@@ -124,7 +125,7 @@ public class RxCreatingTraining {
     }
 
     /**
-     * !Вспомогательный метод! !Не изменять!
+     * Длительные вычисления. (Вспомогательный метод! Не изменять!)
      *
      * @return Результат вычислений
      */
@@ -134,7 +135,8 @@ public class RxCreatingTraining {
     }
 
     /**
-     * !Вспомогательный метод! !Не изменять!
+     * Метод, генерирующий ошибку при unstableCondition=true
+     * (Вспомогательный метод! Не изменять!)
      *
      * @return Результат вычислений
      */
