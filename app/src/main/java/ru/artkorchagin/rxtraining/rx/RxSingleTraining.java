@@ -24,7 +24,13 @@ public class RxSingleTraining {
      * либо ошибку {@link ExpectedException} если оно отрицательное
      */
     Single<Integer> onlyOneElement(Integer value) {
-        throw new NotImplementedException();
+        return Single.<Integer>create(emitter -> {
+            if (value > 0) {
+                emitter.onSuccess(value);
+            } else {
+                emitter.onError(new ExpectedException());
+            }
+        });
     }
 
     /**

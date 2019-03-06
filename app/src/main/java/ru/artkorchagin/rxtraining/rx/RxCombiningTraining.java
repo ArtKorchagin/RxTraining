@@ -26,7 +26,7 @@ public class RxCombiningTraining {
      * результирующей последовательности тоже сработает этот метод.
      */
     public Observable<Integer> summation(Observable<Integer> integerObservable1, Observable<Integer> integerObservable2) {
-        throw new NotImplementedException();
+        return integerObservable1.zipWith(integerObservable2, (first, second) -> second + first);
     }
 
     /**
@@ -40,7 +40,7 @@ public class RxCombiningTraining {
      */
     public Observable<List<String>> requestItems(Observable<String> searchObservable,
                                                  Observable<Integer> categoryObservable) {
-        throw new NotImplementedException();
+        return searchObservable.zipWith(categoryObservable, (search, category) -> searchItems(search,category));
     }
 
     /**
@@ -53,7 +53,7 @@ public class RxCombiningTraining {
      */
     public Observable<Integer> composition(Observable<Integer> intObservable1,
                                            Observable<Integer> intObservable2) {
-        throw new NotImplementedException();
+        return intObservable1.mergeWith(intObservable2);
     }
 
     /**
@@ -65,7 +65,7 @@ public class RxCombiningTraining {
      * элементы последовательности {@code intObservable}
      */
     public Observable<Integer> additionalFirstItem(int firstItem, Observable<Integer> intObservable) {
-        throw new NotImplementedException();
+        return intObservable.startWith(firstItem);
     }
 
     /* Вспомогательные методы */

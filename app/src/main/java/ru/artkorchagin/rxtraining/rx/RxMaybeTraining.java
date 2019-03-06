@@ -21,7 +21,7 @@ public class RxMaybeTraining {
      * либо не эммитит ничего, если {@code value} отрицательное
      */
     Maybe<Integer> positiveOrEmpty(Integer value) {
-        throw new NotImplementedException();
+        return Maybe.just(value);
     }
 
     /**
