@@ -3,7 +3,6 @@ package ru.artkorchagin.rxtraining.rx;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
-import ru.artkorchagin.rxtraining.exceptions.NotImplementedException;
 
 /**
  * @author Arthur Korchagin (artur.korchagin@simbirsoft.com)
@@ -102,7 +101,7 @@ public class RxFilteringTraining {
      * повторяет предыдущее, оно пропускается
      */
     public Observable<Integer> onlyChangedValues(Observable<Integer> intValues) {
-        return intValues;
+        return intValues.distinctUntilChanged();
     }
 
 }

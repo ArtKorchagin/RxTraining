@@ -6,7 +6,6 @@ import java.util.NoSuchElementException;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import ru.artkorchagin.rxtraining.exceptions.ExpectedException;
-import ru.artkorchagin.rxtraining.exceptions.NotImplementedException;
 
 /**
  * @author Arthur Korchagin (artur.korchagin@simbirsoft.com)
@@ -42,7 +41,7 @@ public class RxSingleTraining {
      * последовательность пустая
      */
     Single<Integer> onlyOneElementOfSequence(Observable<Integer> integerObservable) {
-        throw new NotImplementedException();
+        return integerObservable.elementAtOrError(0);
     }
 
     /**
@@ -53,7 +52,9 @@ public class RxSingleTraining {
      * пустая
      */
     Single<Integer> calculateSumOfValues(Observable<Integer> integerObservable) {
-        throw new NotImplementedException();
+        return integerObservable
+                .reduce((int1, int2) -> int1 + int2)
+                .toSingle();
     }
 
     /**
@@ -64,7 +65,7 @@ public class RxSingleTraining {
      * {@code integerObservable}
      */
     Single<List<Integer>> collectionOfValues(Observable<Integer> integerObservable) {
-        throw new NotImplementedException();
+        return integerObservable.toList();
     }
 
     /**
@@ -75,7 +76,10 @@ public class RxSingleTraining {
      * {@code integerSingle} положительны, {@code false} если есть отрицательные элементы
      */
     Single<Boolean> allElementsIsPositive(Observable<Integer> integerSingle) {
-        throw new NotImplementedException();
+        return integerSingle
+                .map(integer -> integer > 0)
+                .reduce((bool1, bool2) -> bool1 && bool2)
+                .toSingle();
     }
 
 }

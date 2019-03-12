@@ -2,7 +2,7 @@ package ru.artkorchagin.rxtraining.rx;
 
 import io.reactivex.Completable;
 import io.reactivex.Single;
-import ru.artkorchagin.rxtraining.exceptions.NotImplementedException;
+import ru.artkorchagin.rxtraining.exceptions.ExpectedException;
 
 /**
  * @author Arthur Korchagin (artur.korchagin@simbirsoft.com)
@@ -29,7 +29,14 @@ public class RxCompletableTraining {
      * @return {@code Completable}
      */
     Completable completeWhenTrue(Single<Boolean> checkSingle) {
-        return Completable.fromSingle(checkSingle);
+        return Completable.create(emitter -> {
+            checkSingle.subscribe(aBoolean -> {
+                if (aBoolean)
+                    emitter.onComplete();
+                else
+                    emitter.onError(new ExpectedException());
+            });
+        });
     }
 
     /* Вспомогательные методы */
