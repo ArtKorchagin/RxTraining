@@ -37,6 +37,7 @@ public class RxCombiningTraining {
      * @param categoryObservable Последовательность категорий, которые необходимо отобразить
      * @return {@link Observable}  который эммитит списки элементов, с учётом поисковой строки из
      * {@code searchObservable} и выбранной категории из {@code categoryObservable}
+     * @see #searchItems(String searchString, int categoryId)
      */
     public Observable<List<String>> requestItems(Observable<String> searchObservable,
                                                  Observable<Integer> categoryObservable) {
